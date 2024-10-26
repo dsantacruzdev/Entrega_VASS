@@ -1,0 +1,175 @@
+//Variables
+//Pantallas
+$mobile-width: 390px; //tamaño mínimo
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-maxwidth: 1960px; //tamaño máximo
+
+//Colores
+$primary-color: #222;
+$white: #FFF;
+
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: #{$desktop-width}) and (max-width: #{$desktop-maxwidth}) {
+      @content;
+    }
+  }
+
+  .container{
+    padding: 20px;
+    max-width: 80%;
+  }
+
+  .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0px;
+    }
+
+    .line {
+        height: 1px;
+        flex-grow: 1;
+        background-color: #4ecca4;
+    }
+
+    .leaf {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+  .topContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .topTitle{
+    font-size: 22px;
+    color: $primary-color;
+    font-weight: bold;
+
+    @include tablet{
+        font-size: 23px;
+    }
+
+    @include desktop{
+        font-size: 23px;
+    }
+  }
+
+  .topSubtitle{
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: normal;
+  }
+
+  .swiper{
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .catCard{
+    width: 46px !important;
+    height: 100px !important;
+    background-color: #f8f8f8;
+    
+    @include tablet{
+        width: 76px !important;
+        height: 111px !important;
+    }
+
+    @include desktop{
+        width: 190px !important;
+        height: 150px !important;
+    }
+  }
+
+  .catLogoBox{
+    height: 70%;
+    display: flex;
+    @include desktop{
+        height: 50%;
+        align-items: flex-end;
+    }
+  }
+
+  .catLogo{
+    margin: 5px;
+    color: $primary-color;
+    @include tablet{
+        max-width: 50%;
+        max-height: 50%;
+    }
+    @include desktop{
+        max-width: 30%;
+        max-height: 30%;
+    }
+  }
+
+  .catTitleBox{
+    height: 30%;
+    @include mobile{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    @include tablet{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    @include desktop{
+        height: 50%;
+    }
+  }
+
+  .catTitle{
+    font-size: 16px;
+    @include mobile{
+        font-size: 15px;
+    }
+  }
+
+  .catCard:hover{
+    @include desktop{
+        background-color: #0da487;
+        background-image: url("/documents/d/guest/fondo");
+        background-repeat: space;
+
+        .catLogo{
+            filter: invert(1);
+        }
+
+        .catTitle{
+            color: $white;
+        }
+    }
+  }
